@@ -24,7 +24,7 @@ class JsonFileOutput(BaseModel):
 # This function sends data to your Google Apps Script Web App
 def send_to_google_sheet(data: JsonFileOutput):
     # !!! PASTE YOUR WEB APP URL HERE !!!
-    apps_script_url = "https://script.google.com/macros/s/AKfycbxlCVEeeEgbayJ9IvlKZIY4fYF47leUnGXXW7Unro1md9wTbJDJTnXzYOxxFO0cyZZI/exec"
+    apps_script_url = os.getenv("APPS_SCRIPT_WEB_APP")
 
     # if "AKfycbxlCVEeeEgbayJ9IvlKZIY4fYF47leUnGXXW7Unro1md9wTbJDJTnXzYOxxFO0cyZZI" in apps_script_url:
     #     print("🔴 ERROR: Please replace the placeholder with your actual Google Apps Script Web App URL.")
@@ -61,7 +61,7 @@ async def analyze_transcript(transcript: Transcript):
         DocumentUrl(url=transcript.url),
     ]
   )
-  # print("--- Agent Output ---")
 
-  # Instead of just printing, send the result to the Google Sheet
+  # Send the result to the Google Sheet
   return send_to_google_sheet(result.output)
+
