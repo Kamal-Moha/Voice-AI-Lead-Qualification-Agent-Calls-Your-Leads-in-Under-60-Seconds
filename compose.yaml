@@ -14,4 +14,10 @@ services:
     env_file: ".env"
     ports:
       - "5000:5000"
+  ai-voice-agent:
+    build: ./AI-Voice-Agent
+    env_file: ".env"
+    environment:
+      - WEBHOOK_URL=http://pydanticai-agent:8000/analyze-transcript
+        
   
