@@ -1,0 +1,17 @@
+services:
+  pydanticai-agent:
+    build: ./PydanticAI-Agent
+    env_file: ".env"
+    ports:
+      - "8000:8000"
+  lk-call-initiator:
+    build: ./LK-Call-Initiator
+    env_file: ".env"
+    ports:
+      - "80:80"
+  lk-webhook:
+    build: ./LK-Webhook
+    env_file: ".env"
+    ports:
+      - "5000:5000"
+  

@@ -1,0 +1,3 @@
+fastapi[standard]
+livekit-agents
+python-dotenv
